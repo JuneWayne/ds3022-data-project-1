@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: main
+    tables:
+      - name: yellow_taxi
+      - name: green_taxi
+      - name: vehicle_emissions
