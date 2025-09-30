@@ -1,5 +1,6 @@
 import duckdb
 import logging
+import time
 
 logging.basicConfig(
     level=logging.INFO,
@@ -7,7 +8,7 @@ logging.basicConfig(
     filename='load.log'
 )
 logger = logging.getLogger(__name__)
-
+sleep_time = 1
 def load_parquet_files():
     con = None
     try:
@@ -40,6 +41,9 @@ def load_parquet_files():
                         """, [url])
                         print(f"Inserted yellow {year}-{m:02d}")
                         logger.info(f"Inserted yellow {year}-{m:02d}")
+                        
+                        # sleep to avoid overwhelming the server or hitting rate limits
+                        time.sleep(sleep_time)
                 except Exception as e:
                     logger.info(f"Skip yellow {year}-{m:02d}: {e}")
                     print(f"Skip yellow {year}-{m:02d}: {e}")
@@ -67,6 +71,9 @@ def load_parquet_files():
                         """, [url])
                         print(f"Inserted green {year}-{m:02d}")
                         logger.info(f"Inserted green {year}-{m:02d}")
+
+                        # sleep to avoid overwhelming the server or hitting rate limits
+                        time.sleep(sleep_time)
                 # skip months that don't exist (just in case)
                 except Exception as e:
                     logger.info(f"Skip green {year}-{m:02d}: {e}")
