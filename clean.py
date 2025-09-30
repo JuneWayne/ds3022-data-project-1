@@ -34,7 +34,7 @@ def clean_parquet():
         logging.info("Cleaned yellow_taxi table")
         print("Cleaned yellow_taxi table")
 
-        # verify above conditions no longer exist in the data
+        # TEST: verify above conditions no longer exist in the data
         yellow_zero_passengers = con.execute("""
             SELECT COUNT(*) FROM yellow_taxi WHERE passenger_count = 0;
         """).fetchone()[0]
@@ -78,6 +78,7 @@ def clean_parquet():
         logging.info("Cleaned green taxi table")
         print("Cleaned green taxi table")
 
+        # TEST: verify above conditions no longer exist in the data
         green_zero_passengers = con.execute("""
             SELECT COUNT(*) FROM green_taxi WHERE passenger_count = 0;
         """).fetchone()[0]
