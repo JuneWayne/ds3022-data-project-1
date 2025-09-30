@@ -67,6 +67,7 @@ def load_parquet_files():
                         """, [url])
                         print(f"Inserted green {year}-{m:02d}")
                         logger.info(f"Inserted green {year}-{m:02d}")
+                # skip months that don't exist (just in case)
                 except Exception as e:
                     logger.info(f"Skip green {year}-{m:02d}: {e}")
                     print(f"Skip green {year}-{m:02d}: {e}")
