@@ -8,6 +8,11 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
+# -----------------------------------------------------------------------------------------------------
+# DBT IS USED USED FOR TRANSFORMATION, THIS PYTHON SCRIPT IS CREATED JUST IN CASE IF IT IS NEEDED
+# PLEASE REFER TO THE DBT DIRECTORY FOR TRANSFORMATION LOGIC
+# -----------------------------------------------------------------------------------------------------
+
 def transform_parquet():
     try:
         con = duckdb.connect(database='emissions.duckdb', read_only=False)
