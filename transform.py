@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    filename="load.log"
+    filename="transform.log"
 )
 log = logging.getLogger(__name__)
 

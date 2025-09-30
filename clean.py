@@ -4,7 +4,7 @@ import time
 
 logging.basicConfig(
     level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='load.log'
+    filename='clean.log'
 )
 logger = logging.getLogger(__name__)
 def clean_parquet():
